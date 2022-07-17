@@ -27,7 +27,7 @@ public class UserController {
         List<User> users = new ArrayList<>();
 
         for (UserEntity userEntity : userEntities) {
-            users.add(new User(userEntity.getFirstName(), userEntity.getLastName()));
+            users.add(new User(userEntity.getFirstName(), userEntity.getLastName(), "v1"));
         }
 
         return users;
@@ -48,9 +48,16 @@ public class UserController {
         List<User> users = new ArrayList<>();
 
         for (UserEntity userEntity : userEntities) {
-            users.add(new User(userEntity.getFirstName(), userEntity.getLastName()));
+            users.add(new User(userEntity.getFirstName(), userEntity.getLastName(), "v1"));
         }
 
         return users;
+    }
+
+    @PostMapping("user/{id}")
+    public String delete(@PathVariable long id) {
+        userRepository.deleteById(id);
+
+        return "deleted";
     }
 }
