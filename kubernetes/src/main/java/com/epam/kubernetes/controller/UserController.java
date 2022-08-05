@@ -27,7 +27,7 @@ public class UserController {
         List<User> users = new ArrayList<>();
 
         for (UserEntity userEntity : userEntities) {
-            users.add(new User(userEntity.getFirstName(), userEntity.getLastName(), "v1"));
+            users.add(new User(userEntity.getFirstName(), userEntity.getLastName(), "v2"));
         }
 
         return users;
